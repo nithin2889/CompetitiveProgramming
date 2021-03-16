@@ -19,6 +19,8 @@ public class PrefixSum2DArray {
 
   private static int[][] findPrefixSum(int[][] arr, int m, int n) {
     int[][] prefixSum = new int[m][n];
+
+    // Formula for finding the prefix sum in a 2D array.
     // prefixSum[i][j] = prefixSum[i - 1][j] + prefixSum[i][j - 1] + arr[i][j] - prefixSum[i - 1][j - 1]
     for (int i = 0; i < m; i++) {
       for (int j = 0; j < n; j++) {
@@ -39,6 +41,7 @@ public class PrefixSum2DArray {
   }
 
   private static int findLRSum(int[][] prefixSum, int l1, int l2, int r1, int r2) {
+    // formula to find the LR sum between any two given points.
     int sum = prefixSum[l2][r2];
     if (l1 - 1 >= 0) {
       sum -= prefixSum[l1 - 1][r2];

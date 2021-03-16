@@ -4,7 +4,7 @@ public class PrefixSum1DArray {
 
   public static void main(String[] args) {
     int[] arr = {2, 1, 3, 3, 1, 4};
-    int l = 2, r = 5;
+    int l = 0, r = 4;
 
     System.out.println("sum of all numbers in the given range in brute force is: "
         + prefixSumBruteForce(arr, l, r));

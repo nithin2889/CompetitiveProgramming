@@ -41,6 +41,7 @@ public class PaintersPartitionProblemGFG {
     return low;
   }
 
+  // to get the maximum element in the array
   private static int getMax(int[] arr, int n) {
     int max = Integer.MIN_VALUE;
     for (int i = 0; i < n; i++) {

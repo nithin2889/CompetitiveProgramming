@@ -9,36 +9,41 @@ public class PaintersPartitionProblemGFG {
     System.out.println("The minimum time to get the job done is: " + partition(arr, n, k));
   }
 
-  private static int numberOfPainters(int[] arr, int n, int maxLen) {
-    int total = 0;
-    int numPainters = 1;
+  private static boolean validPainter(int[] arr, int n, int k, int midAns) {
+    int painter = 1;
+    int boards = 0;
 
     for (int i = 0; i < n; i++) {
-      total += arr[i];
+      boards += arr[i];
 
-      if (total > maxLen) {
-        total = arr[i];
-        numPainters++;
+      if (boards > midAns) {
+        painter++;
+        boards = arr[i];
+      }
+
+      if (painter > k) {
+        return false;
       }
     }
-    return numPainters;
+    return true;
   }
 
   private static int partition(int[] arr, int n, int k) {
     int low = getMax(arr, n);
     int high = getSum(arr, n);
+    int res = -1;
 
-    while (low < high) {
+    while (low <= high) {
       int mid = low + (high - low) / 2;
-      int requiredPainters = numberOfPainters(arr, n, mid);
 
-      if (requiredPainters <= k) {
-        high = mid;
+      if (validPainter(arr, n, k, mid)) {
+        res = mid;
+        high = mid - 1;
       } else {
         low = mid + 1;
       }
     }
-    return low;
+    return res;
   }
 
   // to get the maximum element in the array

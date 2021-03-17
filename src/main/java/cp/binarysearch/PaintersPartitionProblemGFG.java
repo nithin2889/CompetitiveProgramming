@@ -52,6 +52,7 @@ public class PaintersPartitionProblemGFG {
     return max;
   }
 
+  // to get the sum of the array
   private static int getSum(int[] arr, int n) {
     int total = 0;
     for (int i = 0; i < n; i++) {

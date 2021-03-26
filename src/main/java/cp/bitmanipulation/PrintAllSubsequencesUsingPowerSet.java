@@ -22,7 +22,7 @@ public class PrintAllSubsequencesUsingPowerSet {
         }
       }
 
-      for(Integer l : ll) {
+      for (Integer l : ll) {
         System.out.print("{" + l + "}");
       }
     }

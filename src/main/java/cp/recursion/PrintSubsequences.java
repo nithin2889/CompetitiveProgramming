@@ -8,7 +8,12 @@ public class PrintSubsequences {
   public static void main(String[] args) {
     int[] arr = {1, 2, 3};
     List<Integer> ls = new ArrayList<>();
+
+    // using "pick not-pick" method.
     print(arr, 0, ls);
+
+    // using "starting from current index, picking till the end" method.
+    printOtherTechnique(arr, 0, ls);
   }
 
   private static void print(int[] arr, int idx, List<Integer> ls) {
@@ -29,5 +34,18 @@ public class PrintSubsequences {
 
     // not pick
     print(arr, idx + 1, ls);
+  }
+
+  private static void printOtherTechnique(int[] arr, int idx, List<Integer> ls) {
+    int n = arr.length;
+    for (Integer l : ls) {
+      System.out.println(l + " ");
+    }
+
+    for (int i = idx; i < n; i++) {
+      ls.add(arr[i]);
+      printOtherTechnique(arr, idx + 1, ls);
+      ls.remove(ls.size() - 1);
+    }
   }
 }

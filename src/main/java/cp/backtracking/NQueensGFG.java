@@ -8,6 +8,8 @@ public class NQueensGFG {
         {0, 0, 0, 0},
         {0, 0, 0, 0}};
 
+    int n = board.length;
+    System.out.println(n + " queens can be placed safely as shown: ");
     solve(0, board);
   }
 

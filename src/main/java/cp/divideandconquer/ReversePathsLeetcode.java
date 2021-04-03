@@ -32,10 +32,12 @@ public class ReversePathsLeetcode {
     List<Integer> temp = new ArrayList<>();
 
     for (int i = low; i <= mid; i++) {
+      // only executes for N times in its entirety or in one instance.
       while (arr[low] > 2 * arr[right] && right < high) {
         low++;
         right++;
       }
+      // once the right stops moving we get the count.
       count += (right - (mid + 1));
     }
 
